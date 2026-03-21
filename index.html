@@ -116,7 +116,7 @@ nav.tabs {
   border: none;
   background: none;
   cursor: pointer;
-  font-size: 0.88rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--ink-faint);
   position: relative;
@@ -127,6 +127,7 @@ nav.tabs {
   font-family: 'Noto Sans TC', sans-serif;
   display: block;
   margin-bottom: 0.6rem;
+  font-size: 1.15rem;
 }
 
 .tab.active {
@@ -327,10 +328,11 @@ nav.tabs {
   display: block;
 }
 .card-char-row.char-row-long .fav-star-inline {
-  display: block;
-  text-align: right;
-  font-size: 0.7rem;
-  margin-top: 0.1rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 0.15rem;
 }
 .fav-star-inline {
   background: none;
@@ -354,14 +356,17 @@ nav.tabs {
 }
 
 .card-english {
-  background: var(--sand);
   color: var(--ink-light);
-  padding: 0.3rem 0.5rem;
-  border-radius: 4px;
   font-size: 0.78rem;
-  line-height: 1.4;
-  display: inline-block;
-  max-width: 65%;
+  line-height: 1.6;
+}
+
+.card-english-text {
+  background: var(--sand);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 .card-pills {
@@ -435,7 +440,7 @@ nav.tabs {
 
 .component-char {
   font-family: 'Noto Serif TC', serif;
-  font-size: 1.4rem;
+  font-size: 2.8rem;
   font-weight: 900;
   color: var(--ink);
   margin-bottom: 0.25rem;
@@ -529,7 +534,7 @@ nav.tabs {
 
 .compact-row {
   display: grid;
-  grid-template-columns: 1.5rem 4.5rem minmax(3.5rem, 7.5rem) 1fr auto;
+  grid-template-columns: 1.5rem auto minmax(0, 1.5fr) minmax(0, 1.5fr) auto;
   align-items: baseline;
   gap: 0.5rem;
   padding: 11px 14px;
@@ -559,10 +564,10 @@ nav.tabs {
   line-height: 1.3;
 }
 .cr-english {
-  font-size: .78rem;
+  font-size: 0.68rem;
   color: var(--ink-light);
   line-height: 1.3;
-  text-wrap: balance;
+  word-break: break-word;
 }
 .cr-depth {
   font-size: .5rem;
@@ -603,7 +608,7 @@ nav.tabs {
 
 .setup-title {
   font-family: 'Noto Serif TC', serif;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
   font-weight: 900;
   text-align: center;
   margin-bottom: 0.25rem;
@@ -611,7 +616,7 @@ nav.tabs {
 
 .setup-subtitle {
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--ink-faint);
   text-align: center;
   margin-bottom: 1.5rem;
@@ -623,7 +628,7 @@ nav.tabs {
 
 .setup-label {
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.95rem;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--ink);
   margin-bottom: 0.6rem;
@@ -646,16 +651,25 @@ nav.tabs {
 }
 
 .setup-cat-bubble {
-  padding: 0.4rem 0.8rem;
+  padding: 0.6rem 1.2rem;
   border: none;
-  border-radius: 20px;
+  border-radius: 24px;
   background: var(--accent-soft);
   color: var(--accent);
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   transition: opacity 0.2s ease, background 0.2s ease;
   font-weight: 500;
+}
+.setup-cat-bubble.cat-favorites {
+  color: var(--gold);
+  background: var(--gold-soft);
+}
+.setup-cat-bubble.cat-favorites.unselected {
+  opacity: 0.4;
+  background: transparent;
+  color: var(--gold);
 }
 
 .setup-cat-bubble.unselected {
@@ -677,13 +691,13 @@ nav.tabs {
 }
 
 .stepper-btn {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--sand-border);
   border-radius: var(--radius-sm);
   background: var(--rice);
   color: var(--ink);
-  font-size: 1rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -693,10 +707,10 @@ nav.tabs {
 }
 
 .count-value {
-  min-width: 40px;
+  min-width: 48px;
   text-align: center;
   font-family: 'Inter', sans-serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: 600;
   transition: opacity 0.3s ease;
 }
@@ -710,13 +724,13 @@ nav.tabs {
 }
 
 .all-btn {
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 1rem;
   border: none;
   border-radius: 20px;
   background: var(--vermillion-soft);
   color: var(--vermillion);
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
   font-weight: 500;
@@ -733,46 +747,55 @@ nav.tabs {
 
 .mode-toggle {
   display: flex;
-  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
-.mode-btn {
-  flex: 1;
-  padding: 0.6rem 0.5rem;
-  border: 1px solid var(--accent);
+.mode-segment-control {
+  display: flex;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  border: 2px solid var(--accent);
   border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.mode-seg-btn {
+  flex: 1;
+  padding: 0.7rem 0.5rem;
+  border: none;
   background: transparent;
   color: var(--accent);
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-weight: 500;
+  font-weight: 700;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 0.15rem;
-  line-height: 1.3;
+  justify-content: center;
+  gap: 0.25rem;
+}
+.mode-seg-btn + .mode-seg-btn {
+  border-left: 2px solid var(--accent);
 }
 
-.mode-btn .mode-from,
-.mode-btn .mode-to {
-  font-size: 0.85rem;
-}
-
-.mode-btn .mode-arrow {
-  font-size: 0.7rem;
-  opacity: 0.7;
+.mode-seg-btn .mode-char-big {
+  font-size: 1.6rem;
   line-height: 1;
+  font-family: 'Noto Serif TC', serif;
+  font-weight: 900;
+}
+.mode-seg-btn .mode-arrow {
+  font-size: 0.9rem;
+  opacity: 0.6;
 }
 
-.mode-btn.active {
+.mode-seg-btn.active {
   background: var(--accent);
   color: white;
 }
 
-.mode-btn:active {
+.mode-seg-btn:active {
   transform: scale(0.95);
 }
 
@@ -817,19 +840,19 @@ nav.tabs {
 
 .session-info {
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   color: var(--accent);
   font-weight: 500;
 }
 
 .restart-btn {
-  padding: 0.4rem 0.75rem;
+  padding: 0.5rem 0.85rem;
   border: none;
   border-radius: var(--radius-sm);
   background: transparent;
   color: var(--accent);
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -839,17 +862,24 @@ nav.tabs {
 }
 
 .mode-banner {
-  display: flex;
-  gap: 0.5rem;
   padding: 0.5rem 1.5rem;
   border-bottom: 1px solid var(--sand-border);
 }
 
-.mode-banner .mode-btn {
-  flex: 1;
-  padding: 0.4rem;
-  font-size: 0.75rem;
-  border-radius: var(--radius-sm);
+.mode-banner .mode-segment-control {
+  border-width: 1.5px;
+}
+.mode-banner .mode-seg-btn {
+  padding: 0.3rem 0.4rem;
+}
+.mode-banner .mode-seg-btn + .mode-seg-btn {
+  border-left-width: 1.5px;
+}
+.mode-banner .mode-seg-btn .mode-char-big {
+  font-size: 1.4rem;
+}
+.mode-banner .mode-seg-btn .mode-arrow {
+  font-size: 0.8rem;
 }
 
 .progress-dots {
@@ -1015,6 +1045,7 @@ nav.tabs {
   right: 0;
   min-height: 30px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -1044,6 +1075,9 @@ nav.tabs {
   opacity: 0.35;
   transition: opacity 0.5s ease;
   pointer-events: auto;
+  background: none;
+  border: none;
+  text-align: center;
 }
 
 .reveal-pinyin:hover { opacity: 0.7 }
@@ -1286,8 +1320,12 @@ nav.tabs {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  top: calc(100% + 0.02em);
+  top: calc(100% - 0.4em);
   z-index: 10;
+  text-shadow: 0 0 6px rgba(255,255,255,0.9), 0 0 12px rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.7);
+  padding: 0.05em 0.2em;
+  border-radius: 3px;
 }
 .hover-pinyin.hp-show .hp-pinyin {
   opacity: 1;
@@ -1414,6 +1452,7 @@ nav.tabs {
   transition: opacity 0.2s, transform 0.3s;
   opacity: 0.5;
   padding: 0.3rem;
+  display: none;
 }
 .theme-gear:hover { opacity: 0.9; transform: rotate(90deg); }
 
@@ -1434,7 +1473,7 @@ nav.tabs {
   padding: 1.5rem;
   max-width: 380px;
   width: 90%;
-  max-height: 80vh;
+  max-height: 85vh;
   overflow-y: auto;
   box-shadow: 0 12px 40px rgba(44, 36, 22, 0.25);
 }
@@ -1457,7 +1496,7 @@ nav.tabs {
 .theme-option {
   border: 2px solid var(--sand-border);
   border-radius: var(--radius-sm);
-  padding: 1rem;
+  padding: 0.75rem;
   margin-bottom: 0.75rem;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -1498,12 +1537,16 @@ nav.tabs {
   padding: 0.5rem 1.5rem;
   border: 1px solid var(--sand-border);
   border-radius: var(--radius-sm);
-  background: transparent;
+  background: var(--rice-light);
   color: var(--ink);
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s;
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-top: 0.5rem;
 }
 .theme-modal-close:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -1687,7 +1730,7 @@ footer .footer-line {
   }
 
   .tab {
-    font-size: 0.8rem;
+    font-size: 0.95rem;
   }
 }
 
@@ -1700,11 +1743,12 @@ footer .footer-line {
 
 .lexicon-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid var(--accent-soft);
+  gap: 0.5rem;
 }
 
 .lexicon-title {
@@ -2033,11 +2077,11 @@ footer .footer-line {
   <!-- Theme Selection Modal -->
   <div class="theme-modal-overlay" id="theme-modal">
     <div class="theme-modal">
-      <h3><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">選擇主題<span class="hp-pinyin">xuǎnzé zhǔtí</span></span> Choose Theme</h3>
+      <h3><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">選擇主題<span class="hp-pinyin">xuǎnzé zhǔtí</span></span> Choose Theme</h3>
       <div class="modal-subtitle">Customize the drill flashcard aesthetic</div>
 
       <div class="theme-option" data-theme="night-study">
-        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">夜讀<span class="hp-pinyin">yè dú</span></span> Night Study</div>
+        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">夜讀<span class="hp-pinyin">yè dú</span></span> Night Study</div>
         <div class="theme-option-desc">Dark charcoal cards with warm cream text. Cozy evening study atmosphere with subtle glow borders.</div>
         <div class="theme-preview-strip">
           <span style="background:#2c2416"></span>
@@ -2048,7 +2092,7 @@ footer .footer-line {
       </div>
 
       <div class="theme-option" data-theme="bamboo-grove">
-        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">竹林<span class="hp-pinyin">zhúlín</span></span> Bamboo Grove</div>
+        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">竹林<span class="hp-pinyin">zhúlín</span></span> Bamboo Grove</div>
         <div class="theme-option-desc">Fresh sage-tinted cards with jade accents. LXGW WenKai calligraphic characters, modern zen clarity.</div>
         <div class="theme-preview-strip">
           <span style="background:#f0f5ee"></span>
@@ -2059,7 +2103,7 @@ footer .footer-line {
       </div>
 
       <div class="theme-option" data-theme="clean-slate">
-        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">素紙<span class="hp-pinyin">sù zhǐ</span></span> Clean Slate</div>
+        <div class="theme-option-name"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">素紙<span class="hp-pinyin">sù zhǐ</span></span> Clean Slate</div>
         <div class="theme-option-desc">Pure white minimalism. Barely-there borders, airy typography, maximum breathing room for focused study.</div>
         <div class="theme-preview-strip">
           <span style="background:#ffffff"></span>
@@ -2069,7 +2113,7 @@ footer .footer-line {
         </div>
       </div>
 
-      <button class="theme-modal-close" id="theme-modal-close"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">確定<span class="hp-pinyin">quèdìng</span></span> Done</button>
+      <button class="theme-modal-close" id="theme-modal-close"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">確定<span class="hp-pinyin">quèdìng</span></span> Done</button>
     </div>
   </div>
 
@@ -2144,19 +2188,20 @@ footer .footer-line {
 
         <div class="setup-section">
           <div class="setup-label">
-            <span class="label-zh">Categories · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">分類<span class="hp-pinyin">fēnlèi</span></span></span>
+            <span class="label-zh">Categories · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">分類<span class="hp-pinyin">fēnlèi</span></span></span>
           </div>
           <div class="setup-cats" id="drill-categories">
-            <button class="setup-cat-bubble active" data-cat="vocab"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">詞彙<span class="hp-pinyin">cíhuì</span></span></button>
-            <button class="setup-cat-bubble active" data-cat="phrase"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">表達<span class="hp-pinyin">biǎodá</span></span></button>
-            <button class="setup-cat-bubble active" data-cat="idiom"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">成語<span class="hp-pinyin">chéngyǔ</span></span></button>
-            <button class="setup-cat-bubble active" data-cat="concept"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">概念<span class="hp-pinyin">gàiniàn</span></span></button>
+            <button class="setup-cat-bubble cat-favorites unselected" data-cat="favorites">★ Favorites</button>
+            <button class="setup-cat-bubble unselected" data-cat="vocab"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">詞彙<span class="hp-pinyin">cíhuì</span></span></button>
+            <button class="setup-cat-bubble unselected" data-cat="phrase"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">表達<span class="hp-pinyin">biǎodá</span></span></button>
+            <button class="setup-cat-bubble unselected" data-cat="idiom"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">成語<span class="hp-pinyin">chéngyǔ</span></span></button>
+            <button class="setup-cat-bubble unselected" data-cat="concept"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">概念<span class="hp-pinyin">gàiniàn</span></span></button>
           </div>
         </div>
 
         <div class="setup-section">
           <div class="setup-label">
-            <span class="label-zh">Count · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">數量<span class="hp-pinyin">shùliàng</span></span></span>
+            <span class="label-zh">Count · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">數量<span class="hp-pinyin">shùliàng</span></span></span>
           </div>
           <div class="count-stepper">
             <button class="stepper-btn" id="count-minus">−</button>
@@ -2168,11 +2213,13 @@ footer .footer-line {
 
         <div class="setup-section">
           <div class="setup-label">
-            <span class="label-zh">Mode · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">模式<span class="hp-pinyin">móshì</span></span></span>
+            <span class="label-zh">Mode · <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">模式<span class="hp-pinyin">móshì</span></span></span>
           </div>
           <div class="mode-toggle" id="setup-modes">
-            <button class="mode-btn active" data-mode="char"><span class="mode-from" id="mode-from-char"></span><span class="mode-arrow">↓</span><span class="mode-to" id="mode-to-eng1"></span></button>
-            <button class="mode-btn" data-mode="meaning"><span class="mode-from" id="mode-from-eng"></span><span class="mode-arrow">↓</span><span class="mode-to" id="mode-to-char1"></span></button>
+            <div class="mode-segment-control">
+              <button class="mode-seg-btn active" data-mode="char"><span class="mode-char-big">中</span><span class="mode-arrow">→</span><span class="mode-char-big">英</span></button>
+              <button class="mode-seg-btn" data-mode="meaning"><span class="mode-char-big">英</span><span class="mode-arrow">→</span><span class="mode-char-big">中</span></button>
+            </div>
           </div>
         </div>
 
@@ -2187,8 +2234,10 @@ footer .footer-line {
       </div>
 
       <div class="mode-banner" id="session-modes">
-        <button class="mode-btn active" data-mode="char"><span class="mode-from" id="mode-from-char2"></span><span class="mode-arrow">↓</span><span class="mode-to" id="mode-to-eng2"></span></button>
-        <button class="mode-btn" data-mode="meaning"><span class="mode-from" id="mode-from-eng2"></span><span class="mode-arrow">↓</span><span class="mode-to" id="mode-to-char2"></span></button>
+        <div class="mode-segment-control">
+          <button class="mode-seg-btn active" data-mode="char"><span class="mode-char-big">中</span><span class="mode-arrow">→</span><span class="mode-char-big">英</span></button>
+          <button class="mode-seg-btn" data-mode="meaning"><span class="mode-char-big">英</span><span class="mode-arrow">→</span><span class="mode-char-big">中</span></button>
+        </div>
       </div>
 
       <div class="progress-dots" id="progress-dots">
@@ -2227,7 +2276,6 @@ footer .footer-line {
     <div class="lexicon-container">
       <div class="lexicon-header">
         <h2 class="lexicon-title" id="lexicon-title"></h2>
-        <div class="lexicon-count" id="lexicon-count">0 words</div>
       </div>
 
       <div class="lexicon-form-section">
@@ -2306,7 +2354,7 @@ footer .footer-line {
       <div class="connect-subtitle">Connections</div>
       <div class="connect-subtitle">How do these nuggets relate to each other...</div>
       <div class="connect-diagram">
-        [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">整理<span class="hp-pinyin">zhěnglǐ</span></span>] — [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">準備好了<span class="hp-pinyin">zhǔnbèi hǎo le</span></span>] — [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">知識庫<span class="hp-pinyin">zhīshi kù</span></span>]
+        [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">整理<span class="hp-pinyin">zhěnglǐ</span></span>] — [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">準備好了<span class="hp-pinyin">zhǔnbèi hǎo le</span></span>] — [<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">知識庫<span class="hp-pinyin">zhīshi kù</span></span>]
       </div>
     </div>
   </div>
@@ -2319,7 +2367,7 @@ footer .footer-line {
     <div class="footer-line">Nuggets collected from real conversations</div>
     <div class="feedback-section">
       <button class="feedback-toggle" id="feedback-toggle">
-        <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">反饋<span class="hp-pinyin">fǎnkuì</span></span> Feedback
+        <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">反饋<span class="hp-pinyin">fǎnkuì</span></span> Feedback
       </button>
     </div>
   </footer>
@@ -2329,7 +2377,7 @@ footer .footer-line {
     <div class="feedback-modal">
       <button class="feedback-close" id="feedback-close">✕</button>
       <div class="feedback-modal-title">
-        <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">反饋<span class="hp-pinyin">fǎnkuì</span></span> Feedback
+        <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">反饋<span class="hp-pinyin">fǎnkuì</span></span> Feedback
       </div>
       <form class="feedback-modal-form" id="feedback-form" action="https://formspree.io/f/mqeyykjb" method="POST">
         <label for="fb-name">Name</label>
@@ -2355,10 +2403,10 @@ footer .footer-line {
         <label for="fb-message">Message</label>
         <textarea id="fb-message" name="message" placeholder="Share your thoughts..."></textarea>
         <button type="submit" class="feedback-submit">
-          <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">提交<span class="hp-pinyin">tíjiāo</span></span> Submit
+          <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">提交<span class="hp-pinyin">tíjiāo</span></span> Submit
         </button>
         <div class="feedback-success" id="feedback-success">
-          <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">謝謝<span class="hp-pinyin">xièxie</span></span>! Feedback sent successfully.
+          <span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">謝謝<span class="hp-pinyin">xièxie</span></span>! Feedback sent successfully.
         </div>
       </form>
     </div>
@@ -2524,7 +2572,7 @@ let state = {
   expandedCardIdx: null,
   drill: {
     phase: 'setup', // 'setup' or 'session'
-    cats: new Set(['vocab', 'phrase', 'idiom', 'concept']),
+    cats: new Set(),
     count: 25,
     useAll: false,
     mode: 'char', // 'char' or 'meaning'
@@ -2538,7 +2586,7 @@ let state = {
 
 // ========== UTILITIES ==========
 function hoverPinyin(chars, pinyin) {
-  return `<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">${chars}<span class="hp-pinyin">${pinyin}</span></span>`;
+  return `<span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">${chars}<span class="hp-pinyin">${pinyin}</span></span>`;
 }
 
 function hpShow(el) {
@@ -2551,11 +2599,41 @@ function hpHide(el) {
   el._hpTimer = setTimeout(() => el.classList.remove('hp-show'), 2000);
 }
 
-function hpTap(el) {
-  el.classList.add('hp-show');
-  clearTimeout(el._hpTimer);
-  el._hpTimer = setTimeout(() => el.classList.remove('hp-show'), 2000);
-}
+// Long-press pinyin system for mobile (500ms hold = show pinyin, quick tap = button action)
+(function() {
+  let lpTimer = null;
+  let lpEl = null;
+  let lpFired = false;
+
+  document.addEventListener('touchstart', function(e) {
+    const hp = e.target.closest('.hover-pinyin');
+    if (!hp) return;
+    lpFired = false;
+    lpEl = hp;
+    lpTimer = setTimeout(() => {
+      lpFired = true;
+      hp.classList.add('hp-show');
+      clearTimeout(hp._hpTimer);
+      hp._hpTimer = setTimeout(() => hp.classList.remove('hp-show'), 2000);
+    }, 500);
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function() {
+    clearTimeout(lpTimer);
+    lpTimer = null;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    clearTimeout(lpTimer);
+    if (lpFired) {
+      // Long-press happened — prevent the tap from also firing the button
+      e.preventDefault();
+      lpFired = false;
+    }
+    lpTimer = null;
+    lpEl = null;
+  });
+})();
 
 function stripTones(str) {
   return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
@@ -2582,7 +2660,11 @@ function getFiltered() {
 }
 
 function getDrillFiltered() {
-  return NUGGETS.filter(n => state.drill.cats.has(n.category));
+  return NUGGETS.filter(n => {
+    if (state.drill.cats.has(n.category)) return true;
+    if (state.drill.cats.has('favorites') && state.favorites.has(n.id)) return true;
+    return false;
+  });
 }
 
 function setTabAccent(tabName) {
@@ -2645,7 +2727,7 @@ function renderBrowse() {
   container.innerHTML = '';
 
   if (filtered.length === 0) {
-    container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--ink-faint);"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)" ontouchstart="event.preventDefault(); hpTap(this)">沒有啦<span class="hp-pinyin">méiyǒu la</span></span>😗</div>';
+    container.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--ink-faint);"><span class="hover-pinyin" onmouseenter="hpShow(this)" onmouseleave="hpHide(this)">沒有啦<span class="hp-pinyin">méiyǒu la</span></span>😗</div>';
     return;
   }
 
@@ -2686,7 +2768,7 @@ function createCard(nugget, idx) {
           <button class="fav-star-inline ${isFav ? 'active' : ''}" data-fav-id="${nugget.id}" title="Toggle Favorite">★</button>
         </div>
         <div class="card-pinyin" style="font-size: ${calcPinyinFontSize((nugget.traditional || nugget.simplified).length, formatCardPinyin(nugget))}rem">${formatCardPinyin(nugget)}</div>
-        <div class="card-english">${nugget.english}</div>
+        <div class="card-english"><span class="card-english-text">${nugget.english}</span></div>
       </div>
       <div class="card-pills">
         <div class="pill depth">${depthLabel}</div>
@@ -2758,7 +2840,8 @@ function getCategoryLabel(cat) {
     vocab: hoverPinyin('詞彙', 'cíhuì'),
     phrase: hoverPinyin('表達', 'biǎodá'),
     idiom: hoverPinyin('成語', 'chéngyǔ'),
-    concept: hoverPinyin('概念', 'gàiniàn')
+    concept: hoverPinyin('概念', 'gàiniàn'),
+    favorites: '★ Favorites'
   };
   return labels[cat] || cat;
 }
@@ -2768,7 +2851,8 @@ function getCategoryLabelBilingual(cat) {
     vocab: hoverPinyin('詞彙', 'cíhuì') + ' Vocab',
     phrase: hoverPinyin('表達', 'biǎodá') + ' Expression',
     idiom: hoverPinyin('成語', 'chéngyǔ') + ' Idiom',
-    concept: hoverPinyin('概念', 'gàiniàn') + ' Concept'
+    concept: hoverPinyin('概念', 'gàiniàn') + ' Concept',
+    favorites: '★ Favorites'
   };
   return labels[cat] || cat;
 }
@@ -3132,6 +3216,7 @@ function renderDrillCard(nugget) {
     state.tab = 'browse';
     state.view = 'cards';
     setTabAccent('browse');
+    document.querySelector('.theme-gear').style.display = 'none';
     updateViewToggle();
     renderBrowse();
 
@@ -3244,7 +3329,10 @@ function renderDrillCard(nugget) {
     const meaningDiv = document.createElement('div');
     meaningDiv.className = 'drill-meaning drill-meaning-front';
     meaningDiv.textContent = nugget.english;
-    front.appendChild(meaningDiv);
+    const meaningWrap = document.createElement('div');
+    meaningWrap.className = 'drill-center-wrap';
+    meaningWrap.appendChild(meaningDiv);
+    front.appendChild(meaningWrap);
 
     // Back: Character centered + pinyin below
     const backCenterWrap = document.createElement('div');
@@ -3297,6 +3385,7 @@ function renderDrillCard(nugget) {
     state.tab = 'browse';
     state.view = 'cards';
     setTabAccent('browse');
+    document.querySelector('.theme-gear').style.display = 'none';
     updateViewToggle();
     renderBrowse();
     setTimeout(() => {
@@ -3391,7 +3480,7 @@ function initLexicon() {
   renderLexiconList();
   document.getElementById('lexicon-title').innerHTML = hoverPinyin('詞庫', 'cíkù') + ' · Personal Lexicon';
   document.getElementById('lexicon-add-btn').innerHTML = hoverPinyin('添加', 'tiānjiā');
-  document.getElementById('lexicon-empty').innerHTML = hoverPinyin('還沒有詞', 'háishi méiyǒu cí') + ' · No words saved yet';
+  // empty state text is now set dynamically in renderLexiconList()
   document.getElementById('master-generate-groq').innerHTML = 'Generate (Free) • ' + hoverPinyin('免費', 'miǎnfèi');
   document.getElementById('master-generate-anthropic').innerHTML = 'Generate (Opus 4.6) • ' + hoverPinyin('高級', 'gāojí');
 }
@@ -3430,13 +3519,11 @@ function renderLexiconList() {
   const lexicon = getLexicon();
   const listContainer = document.getElementById('lexicon-list');
   const emptyDiv = document.getElementById('lexicon-empty');
-  const countDiv = document.getElementById('lexicon-count');
-
-  countDiv.textContent = lexicon.length + (lexicon.length === 1 ? ' word' : ' words');
 
   if (lexicon.length === 0) {
     listContainer.innerHTML = '';
     emptyDiv.style.display = 'block';
+    emptyDiv.innerHTML = hoverPinyin('還沒有詞', 'háishi méiyǒu cí') + ' · No words saved yet';
     return;
   }
 
@@ -3593,6 +3680,7 @@ document.querySelectorAll('.tab').forEach(tab => {
     document.getElementById(state.tab + '-content').classList.add('active');
 
     setTabAccent(state.tab);
+    document.querySelector('.theme-gear').style.display = state.tab === 'drill' ? '' : 'none';
 
     if (state.tab === 'drill') {
       // Reset drill pinyin reveal on tab switch
@@ -3696,8 +3784,9 @@ function updateViewToggle() {
 
 // Drill setup
 document.getElementById('drill-categories').addEventListener('click', e => {
-  if (e.target.classList.contains('setup-cat-bubble')) {
-    const cat = e.target.dataset.cat;
+  const bubble = e.target.closest('.setup-cat-bubble');
+  if (bubble) {
+    const cat = bubble.dataset.cat;
     if (state.drill.cats.has(cat)) {
       state.drill.cats.delete(cat);
     } else {
@@ -3778,11 +3867,12 @@ function updateStartButton() {
   const requested = state.drill.useAll ? total : state.drill.count;
   const actual = Math.min(requested, total);
 
-  if (total === 0) {
+  // Hide start button when no categories are selected
+  if (state.drill.cats.size === 0 || total === 0) {
+    btn.style.display = 'none';
     btn.innerHTML = hoverPinyin('開始', 'kāishǐ');
-  } else if (actual < requested || state.drill.useAll) {
-    btn.innerHTML = hoverPinyin('開始', 'kāishǐ') + ` (${actual})`;
   } else {
+    btn.style.display = '';
     btn.innerHTML = hoverPinyin('開始', 'kāishǐ') + ` (${actual})`;
   }
 }
@@ -3800,10 +3890,10 @@ function updateSmartCount() {
   updateStartButton();
 }
 
-document.querySelectorAll('#setup-modes .mode-btn').forEach(btn => {
+document.querySelectorAll('#setup-modes .mode-seg-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     state.drill.mode = btn.dataset.mode;
-    document.querySelectorAll('#setup-modes .mode-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#setup-modes .mode-seg-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
   });
 });
@@ -3904,10 +3994,10 @@ document.getElementById('prev-btn').addEventListener('click', drillPrev);
 document.getElementById('next-btn').addEventListener('click', drillNext);
 
 // Session mode toggle (attach once)
-document.querySelectorAll('#session-modes .mode-btn').forEach(btn => {
+document.querySelectorAll('#session-modes .mode-seg-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     state.drill.mode = btn.dataset.mode;
-    document.querySelectorAll('#session-modes .mode-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('#session-modes .mode-seg-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     state.drill.flipped = false;
     document.getElementById('flip-card').classList.remove('flipped');
@@ -4151,15 +4241,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Set connect title with hover pinyin
   document.getElementById('connect-title').innerHTML = hoverPinyin('連結', 'liánjié');
 
-  // Set mode buttons with hover pinyin
-  document.getElementById('mode-from-char').innerHTML = hoverPinyin('中文字元', 'zhōngwén zìyuán');
-  document.getElementById('mode-to-eng1').innerHTML = hoverPinyin('英文意義', 'yīngwén yìyì');
-  document.getElementById('mode-from-eng').innerHTML = hoverPinyin('英文意義', 'yīngwén yìyì');
-  document.getElementById('mode-to-char1').innerHTML = hoverPinyin('中文字元', 'zhōngwén zìyuán');
-  document.getElementById('mode-from-char2').innerHTML = hoverPinyin('中文字元', 'zhōngwén zìyuán');
-  document.getElementById('mode-to-eng2').innerHTML = hoverPinyin('英文意義', 'yīngwén yìyì');
-  document.getElementById('mode-from-eng2').innerHTML = hoverPinyin('英文意義', 'yīngwén yìyì');
-  document.getElementById('mode-to-char2').innerHTML = hoverPinyin('中文字元', 'zhōngwén zìyuán');
+  // Mode segment buttons are now static HTML — no dynamic label setting needed
 
   // Set button labels with hover pinyin
   document.getElementById('all-btn').innerHTML = hoverPinyin('都', 'dōu');
@@ -4175,6 +4257,7 @@ document.addEventListener('DOMContentLoaded', () => {
   catToggleBtn.innerHTML = hoverPinyin('全選', 'quánxuǎn') + ' All';
 
   setTabAccent('browse');
+  document.querySelector('.theme-gear').style.display = 'none';
   renderBrowse();
   updateStartButton();
   // Apply saved theme
@@ -4310,7 +4393,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Glow on interactive taps
   document.addEventListener('click', (e) => {
-    const target = e.target.closest('.cat-bubble, .setup-cat-bubble, .fav-star-inline, .drill-fav-star, .list-fav-star, .segment-btn');
+    const target = e.target.closest('.cat-bubble, .setup-cat-bubble, .fav-star-inline, .drill-fav-star, .list-fav-star, .segment-btn, .mode-seg-btn');
     if (target) {
       target.classList.remove('glow');
       void target.offsetWidth; // force reflow
